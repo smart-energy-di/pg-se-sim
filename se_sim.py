@@ -7,12 +7,11 @@ import sys
 
 import click
 
-from simulation.create_objects import createSimObjects
-from simulation.statistics import debug_general_statistic, debug_roles
+from simulation.simulation import Simulation
 from utils.log_loggers import PLUGIN_LOG
 from utils.log_utils import add_loggers
 
-AllSimObjects = set()
+AllSimObjects = Simulation()
 
 
 @click.command()
@@ -27,9 +26,11 @@ AllSimObjects = set()
               help='Show simulation debug information (maybe multiple).')
 def main(dm, dp, de, ds):
     add_loggers(dm, dp, de, ds)
-    createSimObjects(AllSimObjects)
-    debug_general_statistic(AllSimObjects)
-    debug_roles(AllSimObjects)
+    PLUGIN_LOG.info("Program start")
+    AllSimObjects.create_objects()
+    AllSimObjects.debug_general_statistic()
+    AllSimObjects.debug_roles()
+    AllSimObjects.generate(level=1)
     PLUGIN_LOG.info("Program exit")
     return 0
 
