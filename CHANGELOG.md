@@ -15,4 +15,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Class participant is now also tested
 - each object now has a unique, random UUID
 - new doctests, first Participant doctest
+- Explanation: Why simulation within the "Smart Energy" topic?
 
