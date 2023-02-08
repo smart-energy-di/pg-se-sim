@@ -24,3 +24,9 @@ test/test_basics.py .                                                    [100%]
 
 ============================== 1 passed in 0.01s ===============================
 ```
+
+### check pep8 syntax
+
+```shell
+$ docker run --entrypoint flake8 --rm se_dev
+```

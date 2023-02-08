@@ -1,3 +1,4 @@
 -r requirements_prd.txt
+flake8==5.0.4
 pylint
 pytest

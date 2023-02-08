@@ -14,4 +14,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integrate first test methods
 - Class participant is now also tested
 - each object now has a unique, random UUID
+- new doctests, first Participant doctest
 
