@@ -47,7 +47,7 @@ Hopefully, this will all develop in the process of many small iterative steps.
 #### build the image
 
 ```shell
-$ docker build -t se_sim .
+$ docker build -t se_sim -f Dockerfile .
 Step 1/7 : FROM python:3.11-alpine
 [...]
 Successfully tagged se_sim:latest

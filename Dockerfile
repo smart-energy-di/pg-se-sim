@@ -1,10 +1,10 @@
 FROM python:3.11-alpine
 
-COPY requirements.txt /opt/app/requirements.txt
+COPY requirements_prd.txt /opt/app/requirements_prd.txt
 
 WORKDIR /opt/app
 
-RUN pip install --no-cache-dir --root-user-action=ignore -r requirements.txt
+RUN pip install --no-cache-dir --root-user-action=ignore -r requirements_prd.txt
 
 COPY . /opt/app
 

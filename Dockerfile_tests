@@ -1,0 +1,11 @@
+FROM python:3.11-alpine
+
+COPY requirements_*.txt /opt/app/
+
+WORKDIR /opt/app
+
+RUN pip install --no-cache-dir --root-user-action=ignore -r requirements_dev.txt
+
+COPY . /opt/app
+
+ENTRYPOINT ["pytest"]
