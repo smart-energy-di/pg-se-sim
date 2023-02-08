@@ -8,6 +8,7 @@ class Participant(SeObject):
     """
 
     def __init__(self, el_role, en_title, de_title):
+        super().__init__()
         self._el_role = el_role
         self._en_title = en_title
         self._de_title = de_title

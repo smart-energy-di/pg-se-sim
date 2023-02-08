@@ -12,3 +12,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - mini docker env added
 - new CHANGELOG (see CHANGELOG.md ;-)
 - Integrate first test methods
+- Class participant is now also tested
+- each object now has a unique, random UUID
+
