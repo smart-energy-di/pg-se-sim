@@ -1,7 +1,7 @@
 from model.participant import Participant
 
 
-def createSimObjects(obj_list):
+def createSimObjects(obj_list: list[Participant]) -> None:
     # ----------------------------------------------------------------------
     obj_list.append(
         Participant(

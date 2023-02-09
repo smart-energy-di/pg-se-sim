@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir --root-user-action=ignore -r requirements_dev.txt
 
 COPY . /opt/app
 
-ENTRYPOINT ["pytest"]
+ENTRYPOINT ["tox"]

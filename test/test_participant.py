@@ -20,6 +20,9 @@ class SimObjectTestCase(unittest.TestCase):
         self.assertEqual(str(uuid_obj),
                          str(self.participant._uuid))
 
+    def test_obj_has_role(self):
+        self.assertEqual(self.participant.el_role, 'no_role')
+
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main()  # pragma: no cover

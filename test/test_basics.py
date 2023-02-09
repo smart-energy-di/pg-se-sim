@@ -14,10 +14,10 @@ class SimObjectTestCase(unittest.TestCase):
                          "<class 'model.simobject.SeObject'>")
 
     def test_obj_has_valid_uuid(self):
-        uuid_obj = UUID(str(self.seObject._uuid))
+        uuid_obj = UUID(str(self.seObject._uuid))  # direct
         self.assertEqual(str(uuid_obj),
-                         str(self.seObject._uuid))
+                         str(self.seObject.uuid))  # getter
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main()  # pragma: no cover

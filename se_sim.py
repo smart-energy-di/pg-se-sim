@@ -24,7 +24,7 @@ AllSimObjects = Simulation()
               help='Show event debug information (maybe multiple).')
 @click.option('--ds', default=0, count=True,
               help='Show simulation debug information (maybe multiple).')
-def main(dm, dp, de, ds):
+def main(dm: int, dp: int, de: int, ds: int) -> int:
     add_loggers(dm, dp, de, ds)
     PLUGIN_LOG.info("Program start")
     AllSimObjects.create_objects()

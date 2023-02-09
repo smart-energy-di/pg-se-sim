@@ -17,4 +17,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - new doctests, first Participant doctest
 - Explanation: Why simulation within the "Smart Energy" topic?
 - [doctest](https://github.com/smart-energy-di/pg-se-sim/blob/main/test/test_doc_participant.md) for a first generator run
-
+- Static Typing in Python
+- more tox testing framework

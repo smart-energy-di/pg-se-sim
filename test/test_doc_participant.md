@@ -40,6 +40,7 @@ As in the following example:
 ### select the 'oven' object
 
 ````pycon
+>>> AllSimObjects.get_obj_by_en_title('title_not_in_list')
 >>> AllSimObjects.get_obj_by_en_title('oven')
 <model.participant.Participant object at ...>
 

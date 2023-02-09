@@ -11,14 +11,14 @@ handler_stdout = logging.StreamHandler(sys.stdout)
 handler_stdout.setFormatter(formatter)
 
 
-def add_logger(arg_name, arg_level):
+def add_logger(arg_name: str, arg_level: int) -> None:
     this_logger = logging.getLogger(arg_name)
     this_logger.setLevel(get_debug_level(arg_level))
     for handler in [handler_stdout]:
         this_logger.addHandler(handler)
 
 
-def get_debug_level(arg_level):
+def get_debug_level(arg_level: int) -> int:
     if arg_level == 1:
         return logging.WARNING
     elif arg_level == 2:
@@ -29,7 +29,7 @@ def get_debug_level(arg_level):
         return logging.ERROR
 
 
-def add_loggers(dm, dp, de, ds):
+def add_loggers(dm: int, dp: int, de: int, ds: int) -> None:
     add_logger('model', dm)
     add_logger('plugin', dp)
     add_logger('event', de)

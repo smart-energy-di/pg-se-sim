@@ -7,18 +7,19 @@ class GenParticipant(GenObject):
     The participant object for the code generator
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
-        PLUGIN_LOG.debug(f"create code generator 'participant'")
+        PLUGIN_LOG.debug("create code generator 'participant'")
 
-    def gen_output_pre(self, level):
+    def gen_output_pre(self, level: int) -> None:
         PLUGIN_LOG.debug("GenParticipant.gen_output_pre")
-        print(f"{' ' * (level * 4)}(participant:", end='')
+        print(' ' * (level * 4) + "(participant:", end='')
 
-    def gen_output_post(self, level):
+    def gen_output_post(self, level: int) -> None:
         PLUGIN_LOG.debug("GenParticipant.gen_output_post")
-        print(f")")
+        print(")")
 
-    def gen_output(self, level):
+    def gen_output(self, level: int) -> None:
         PLUGIN_LOG.debug("GenParticipant.gen_output")
-        print(f"'{self.en_title}'", end='')
+        out_title = getattr(self, 'en_title', None)
+        print(f"'{out_title}'", end='')

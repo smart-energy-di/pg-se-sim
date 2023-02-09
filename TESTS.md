@@ -5,7 +5,7 @@ approach, let's start with some initial tests ...
 
 #### build the development image
 
-```shell
+```text
 $ docker build --rm -t se_dev -f Dockerfile_tests .
 [...]
 Successfully tagged se_dev:latest
@@ -13,20 +13,57 @@ Successfully tagged se_dev:latest
 
 #### run the test container
 
-```shell
-$ docker run --rm se_dev
+we use 'tox' as the testing framework with
+
+- pytest
+- coverage > 90%
+- mypy --strict
+- flake8
+
+```text
+$ docker run --rm  se_dev
+py311: commands[0]> pytest --cov --cov-append --cov-report=term-missing --cov-fail-under=90
 ============================= test session starts ==============================
 platform linux -- Python 3.11.1, pytest-7.2.1, pluggy-1.0.0
-rootdir: /opt/app
-collected 1 item
+cachedir: .tox/py311/.pytest_cache
+rootdir: /opt/app, configfile: pytest.ini
+plugins: cov-4.0.0
+collected 6 items
 
-test/test_basics.py .                                                    [100%]
+test/test_basics.py ..                                                   [ 33%]
+test/test_doc_participant.md .                                           [ 50%]
+test/test_participant.py ...                                             [100%]
 
-============================== 1 passed in 0.01s ===============================
-```
+---------- coverage: platform linux, python 3.11.1-final-0 -----------
+Name                           Stmts   Miss  Cover   Missing
+------------------------------------------------------------
+generator/__init__.py              0      0   100%
+generator/genobject.py            16      0   100%
+generator/participant.py          16      0   100%
+model/__init__.py                  0      0   100%
+model/participant.py              17      0   100%
+model/simobject.py                 9      0   100%
+simulation/__init__.py             0      0   100%
+simulation/create_objects.py      24      0   100%
+simulation/simulation.py          25      0   100%
+test/__init__.py                   0      0   100%
+test/test_basics.py               13      0   100%
+test/test_participant.py          15      0   100%
+utils/__init__.py                  0      0   100%
+utils/log_loggers.py               5      0   100%
+------------------------------------------------------------
+TOTAL                            140      0   100%
 
-### check pep8 syntax
+Required test coverage of 90% reached. Total coverage: 100.00%
 
-```shell
-$ docker run --entrypoint flake8 --rm se_dev
+============================== 6 passed in 0.12s ===============================
+py311: OK ✔ in 1.65 seconds
+type: commands[0]> mypy --python-version 3.11 --strict generator model simulation utils se_sim.py
+Success: no issues found in 13 source files
+type: OK ✔ in 3.45 seconds
+flake8: commands[0]> flake8 generator model simulation utils se_sim.py
+  py311: OK (1.65=setup[1.05]+cmd[0.60] seconds)
+  type: OK (3.45=setup[0.39]+cmd[3.06] seconds)
+  flake8: OK (0.65=setup[0.38]+cmd[0.27] seconds)
+  congratulations :) (5.82 seconds)
 ```
