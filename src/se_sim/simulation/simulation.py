@@ -1,7 +1,7 @@
-from generator.genobject import GenObject
-from model.participant import Participant
-from simulation.create_objects import createSimObjects
-from utils.log_loggers import MODEL_LOG, PLUGIN_LOG
+from se_sim.generator.genobject import GenObject
+from se_sim.model.participant import Participant
+from se_sim.simulation.create_objects import createSimObjects
+from se_sim.utils.log_loggers import MODEL_LOG, PLUGIN_LOG
 
 
 class Simulation(list[Participant], GenObject):

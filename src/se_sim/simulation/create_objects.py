@@ -1,4 +1,4 @@
-from model.participant import Participant
+from se_sim.model.participant import Participant
 
 
 def createSimObjects(obj_list: list[Participant]) -> None:

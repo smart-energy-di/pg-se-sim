@@ -17,19 +17,19 @@ As in the following example:
 ### create a participant here:
 
 ```pycon
->>> from model.participant import Participant
+>>> from se_sim.model.participant import Participant
 >>> p=Participant(el_role='no_role',
 ...               en_title='en_title',
 ...               de_title='de_title')
 >>> type(p)
-<class 'model.participant.Participant'>
+<class 'se_sim.model.participant.Participant'>
 
 ```
 
 ### or create some participants from source code
 
 ````pycon
->>> from simulation.simulation import Simulation
+>>> from se_sim.simulation.simulation import Simulation
 >>> AllSimObjects = Simulation()
 >>> AllSimObjects.create_objects()
 >>> len(AllSimObjects)
@@ -42,7 +42,7 @@ As in the following example:
 ````pycon
 >>> AllSimObjects.get_obj_by_en_title('title_not_in_list')
 >>> AllSimObjects.get_obj_by_en_title('oven')
-<model.participant.Participant object at ...>
+<se_sim.model.participant.Participant object at ...>
 
 ````
 

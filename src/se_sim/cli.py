@@ -7,9 +7,9 @@ import sys
 
 import click
 
-from simulation.simulation import Simulation
-from utils.log_loggers import PLUGIN_LOG
-from utils.log_utils import add_loggers
+from se_sim.simulation.simulation import Simulation
+from se_sim.utils.log_loggers import PLUGIN_LOG
+from se_sim.utils.log_utils import add_loggers
 
 AllSimObjects = Simulation()
 

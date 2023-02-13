@@ -1,5 +1,5 @@
-from generator.genobject import GenObject
-from utils.log_loggers import PLUGIN_LOG
+from se_sim.generator.genobject import GenObject
+from se_sim.utils.log_loggers import PLUGIN_LOG
 
 
 class GenParticipant(GenObject):

@@ -6,6 +6,8 @@ WORKDIR /opt/app
 
 RUN pip install --no-cache-dir --root-user-action=ignore -r requirements_prd.txt
 
-COPY . /opt/app
+COPY ./src /opt/app
 
-ENTRYPOINT ["python","./se_sim.py"]
+ENV PYTHONPATH "${PYTHONPATH}:/opt/app"
+
+ENTRYPOINT ["python","./se_sim/cli.py"]

@@ -1,19 +1,19 @@
 import unittest
 from uuid import UUID
 
-from model.simobject import SeObject
+from se_sim.model.simobject import SeObject
 
 
 class SimObjectTestCase(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.seObject = SeObject()
 
-    def test_01(self):
+    def test_01(self) -> None:
         self.assertEqual(type(self.seObject), SeObject)
         self.assertEqual(str(type(self.seObject)),
-                         "<class 'model.simobject.SeObject'>")
+                         "<class 'se_sim.model.simobject.SeObject'>")
 
-    def test_obj_has_valid_uuid(self):
+    def test_obj_has_valid_uuid(self) -> None:
         uuid_obj = UUID(str(self.seObject._uuid))  # direct
         self.assertEqual(str(uuid_obj),
                          str(self.seObject.uuid))  # getter

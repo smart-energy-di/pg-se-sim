@@ -19,3 +19,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [doctest](https://github.com/smart-energy-di/pg-se-sim/blob/main/test/test_doc_participant.md) for a first generator run
 - Static Typing in Python
 - more tox testing framework
+- new directory structure with src for python code

@@ -1,4 +1,4 @@
-from utils.log_loggers import MODEL_LOG, PLUGIN_LOG
+from se_sim.utils.log_loggers import MODEL_LOG, PLUGIN_LOG
 
 
 class GenObject:

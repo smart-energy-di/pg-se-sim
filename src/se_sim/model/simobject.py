@@ -1,6 +1,6 @@
 import uuid
 
-from utils.log_loggers import MODEL_LOG
+from se_sim.utils.log_loggers import MODEL_LOG
 
 
 class SeObject:

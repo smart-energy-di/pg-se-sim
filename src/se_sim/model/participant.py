@@ -1,6 +1,6 @@
-from generator.participant import GenParticipant
-from model.simobject import SeObject
-from utils.log_loggers import MODEL_LOG
+from se_sim.generator.participant import GenParticipant
+from se_sim.model.simobject import SeObject
+from se_sim.utils.log_loggers import MODEL_LOG
 
 
 class Participant(SeObject, GenParticipant):
