@@ -1,5 +1,7 @@
 # smart energy simulator
 
+[![python tox](https://github.com/smart-energy-di/pg-se-sim/actions/workflows/tox.yaml/badge.svg)](https://github.com/smart-energy-di/pg-se-sim/actions/workflows/tox.yaml)
+
 ## Why simulation within the "Smart Energy" topic?
 
 The approach of a simulation has the following aspects:
