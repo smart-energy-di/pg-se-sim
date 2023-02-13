@@ -20,3 +20,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Static Typing in Python
 - more tox testing framework
 - new directory structure with src for python code
+- new plugin mechanism added
