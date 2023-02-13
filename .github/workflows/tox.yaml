@@ -1,0 +1,13 @@
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build docker
+      run: docker build --rm -t se_dev -f Dockerfile_tests .
+    - name: Run docker
+      run: docker run --rm  se_dev
