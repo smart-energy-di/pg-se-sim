@@ -1,7 +1,5 @@
-on:
-  push:
-    branches: [ master ]
-
+name: Test with tox in docker container
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
