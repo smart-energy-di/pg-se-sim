@@ -6,3 +6,4 @@ coverage
 pytest-coverage
 tox
 mypy
+types-PyYAML

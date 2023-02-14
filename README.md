@@ -41,34 +41,34 @@ Hopefully, this will all develop in the process of many small iterative steps.
 ### Here is the very first output:
 
 ```console
-> python se_sim.py --dp --dp --dm --dm --dm
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'oven')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'instantaneous water heater big')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'instantaneous water heater small')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'freezer')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'freezer combination')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'domestic waterworks')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'heating cartridge in buffer tank')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'air conditioning')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'fridge')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'Charger')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'ventilation unit')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'Network Attached Storage')
-[2023-02-07T18:00:54]   DEBUG - New 'producer' object (en:'PV modules (DC side)')
-[2023-02-07T18:00:54]   DEBUG - New 'prosumer' object (en:'PV Inverter')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'Dishwasher')
-[2023-02-07T18:00:54]   DEBUG - New 'prosumer' object (en:'power storage (AC side)')
-[2023-02-07T18:00:54]   DEBUG - New 'prosumer' object (en:'Wallbox (AC side)')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'heat pump heating')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'heat pump domestic hot water')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'hot water boiler')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'washing machine')
-[2023-02-07T18:00:54]   DEBUG - New 'consumer' object (en:'Electricity storage heater')
-[2023-02-07T18:00:54]    INFO - Number of objects  22
-[2023-02-07T18:00:54]    INFO - Role: 'consumer':  18
-[2023-02-07T18:00:54]    INFO - Role: 'prosumer':   3
-[2023-02-07T18:00:54]    INFO - Role: 'producer':   1
-[2023-02-07T18:00:54]    INFO - Program exit
+$ python ./src/se_sim/cli.py \
+       se_sim.plugins.input.v01example.read \
+       se_sim.plugins.output.v01generator.Generator
+(Simulation:
+        (participant:'oven')
+        (participant:'instantaneous water heater big')
+        (participant:'instantaneous water heater small')
+        (participant:'freezer')
+        (participant:'freezer combination')
+        (participant:'domestic waterworks')
+        (participant:'heating cartridge in buffer tank')
+        (participant:'air conditioning')
+        (participant:'fridge')
+        (participant:'Charger')
+        (participant:'ventilation unit')
+        (participant:'Network Attached Storage')
+        (participant:'PV modules (DC side)')
+        (participant:'PV Inverter')
+        (participant:'Dishwasher')
+        (participant:'power storage (AC side)')
+        (participant:'Wallbox (AC side)')
+        (participant:'heat pump heating')
+        (participant:'heat pump domestic hot water')
+        (participant:'hot water boiler')
+        (participant:'washing machine')
+        (participant:'Electricity storage heater')
+)
+
 ```
 
 ### and here are the first steps with docker
@@ -85,33 +85,49 @@ Successfully tagged se_sim:latest
 #### run the container
 
 ````shell
-$ docker run --rm se_sim --dm --dm --dm --dp --dp
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'oven')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'instantaneous water heater big')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'instantaneous water heater small')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'freezer')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'freezer combination')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'domestic waterworks')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'heating cartridge in buffer tank')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'air conditioning')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'fridge')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'Charger')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'ventilation unit')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'Network Attached Storage')
-[2023-02-08T12:47:22]   DEBUG - New 'producer' object (en:'PV modules (DC side)')
-[2023-02-08T12:47:22]   DEBUG - New 'prosumer' object (en:'PV Inverter')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'Dishwasher')
-[2023-02-08T12:47:22]   DEBUG - New 'prosumer' object (en:'power storage (AC side)')
-[2023-02-08T12:47:22]   DEBUG - New 'prosumer' object (en:'Wallbox (AC side)')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'heat pump heating')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'heat pump domestic hot water')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'hot water boiler')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'washing machine')
-[2023-02-08T12:47:22]   DEBUG - New 'consumer' object (en:'Electricity storage heater')
-[2023-02-08T12:47:22]    INFO - Number of objects  22
-[2023-02-08T12:47:22]    INFO - Role: 'consumer':  18
-[2023-02-08T12:47:22]    INFO - Role: 'prosumer':   3
-[2023-02-08T12:47:22]    INFO - Role: 'producer':   1
-[2023-02-08T12:47:22]    INFO - Program exit
+$ docker run --rm se_sim \
+           se_sim.plugins.input.v01example.read \
+           se_sim.plugins.output.v01generator.Generator
+(Simulation:
+        (participant:'oven')
+        (participant:'instantaneous water heater big')
+        (participant:'instantaneous water heater small')
+        (participant:'freezer')
+        (participant:'freezer combination')
+        (participant:'domestic waterworks')
+        (participant:'heating cartridge in buffer tank')
+        (participant:'air conditioning')
+        (participant:'fridge')
+        (participant:'Charger')
+        (participant:'ventilation unit')
+        (participant:'Network Attached Storage')
+        (participant:'PV modules (DC side)')
+        (participant:'PV Inverter')
+        (participant:'Dishwasher')
+        (participant:'power storage (AC side)')
+        (participant:'Wallbox (AC side)')
+        (participant:'heat pump heating')
+        (participant:'heat pump domestic hot water')
+        (participant:'hot water boiler')
+        (participant:'washing machine')
+        (participant:'Electricity storage heater')
+)
+
 ````
 
+run docker instance with some debug output
+
+````shell
+$ docker run --rm se_sim --dp --dp \
+            se_sim.plugins.input.v01example.read \
+            se_sim.plugins.output.v01generator.Generator
+[2023-02-14T21:29:38]    INFO - Program start                                                                                                 
+(Simulation:
+        (participant:'oven')
+        (participant:'instantaneous water heater big')
+        ...
+        (participant:'Electricity storage heater')
+)
+[2023-02-14T21:29:38]    INFO - Program exit
+
+````
