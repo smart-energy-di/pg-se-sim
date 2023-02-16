@@ -1,0 +1,23 @@
+name: Generate the documatation by sphinx
+
+# Runs on pushes targeting the default branch
+on:
+  push:
+    branches: [master]
+
+concurrency:
+  group: gh-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pages:
+    runs-on: ubuntu-20.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+    - id: deployment
+      uses: sphinx-notes/pages@v3
