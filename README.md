@@ -5,10 +5,10 @@
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://github.com/smart-energy-di/pg-se-sim/blob/36a3d5c1ccc3d8ae497d308d73c2b0176cb83967/LICENSE)
 
 [![python tox](https://github.com/smart-energy-di/pg-se-sim/actions/workflows/tox.yaml/badge.svg)](https://github.com/smart-energy-di/pg-se-sim/actions/workflows/tox.yaml)
+[![Generate documatation](https://github.com/smart-energy-di/pg-se-sim/actions/workflows/docs.yaml/badge.svg)](https://github.com/smart-energy-di/pg-se-sim/actions/workflows/docs.yaml)
 [![GitHub Watches](https://img.shields.io/github/watchers/smart-energy-di/pg-se-sim.svg?style=plastic&label=Watch&maxAge=2592000)](https://github.com/smart-energy-di/pg-se-sim/watchers)
 [![GitHub Starts](https://img.shields.io/github/stars/smart-energy-di/pg-se-sim.svg?style=plastic&label=Star&maxAge=2592000)](https://github.com/smart-energy-di/pg-se-sim/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/smart-energy-di/pg-se-sim.svg?style=plastic&label=Fork&maxAge=2592000)](https://github.com/smart-energy-di/pg-se-sim/network)
 
 
-
-[Click here for the entire documentation](https://smart-energy-di.github.io/pg-se-sim/)
+## [Click here for the entire documentation](https://smart-energy-di.github.io/pg-se-sim/)

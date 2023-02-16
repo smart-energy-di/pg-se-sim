@@ -1,4 +1,4 @@
-name: Generate the documatation by sphinx
+name: Generate documatation
 
 on:
   push:
