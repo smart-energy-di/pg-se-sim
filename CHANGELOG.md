@@ -22,3 +22,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - new directory structure with src for python code
 - new plugin mechanism added
 - plugin execution added
+- documentation built in using sphinx

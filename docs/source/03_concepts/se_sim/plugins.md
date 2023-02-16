@@ -1,6 +1,6 @@
-# some initial thoughts on a plugin mechanism
+# initial thoughts on a plugin mechanism
 
-> **_NOTE:_**  this idea draft is not yet implemented
+> **_NOTE:_**  this draft idea has not yet been fully implemented
 
 ````text
 $ src/se_sim/cli.py \
