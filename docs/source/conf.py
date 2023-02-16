@@ -80,3 +80,4 @@ suppress_warnings = ["myst.header"]
 
 todo_include_todos = True
 
+today_fmt = '%Y-%m-%dT%H:%M:%S%z'

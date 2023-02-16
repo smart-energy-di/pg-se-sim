@@ -6,12 +6,6 @@ on:
       - main
     tags:
       - '*'  # all tags
-  workflow_dispatch:   # allow manual triggering
-    inputs:
-      documentation_path:
-        description: 'Path to Sphinx source files'
-        required: false
-        default: './docs'
 
 concurrency:
   group: gh-${{ github.ref }}
