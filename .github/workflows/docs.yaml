@@ -1,9 +1,17 @@
 name: Generate the documatation by sphinx
 
-# Runs on pushes targeting the default branch
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+    tags:
+      - '*'  # all tags
+  workflow_dispatch:   # allow manual triggering
+    inputs:
+      documentation_path:
+        description: 'Path to Sphinx source files'
+        required: false
+        default: './docs/source'
 
 concurrency:
   group: gh-${{ github.ref }}
