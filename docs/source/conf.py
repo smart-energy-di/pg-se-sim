@@ -28,7 +28,6 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinxcontrib.plantuml',
     'sphinx.ext.autosummary',
-    'sphinx.ext.duration',
     'sphinx_click',
 ]
 
