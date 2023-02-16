@@ -3,7 +3,7 @@ name: Generate the documatation by sphinx
 # Runs on pushes targeting the default branch
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 concurrency:
   group: gh-${{ github.ref }}
