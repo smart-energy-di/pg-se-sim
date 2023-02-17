@@ -1,6 +1,6 @@
 # Three-liner (english)
 
-The "smart energy simulator" (se_sim) is a software for simulating data flows
+The "[smart energy](../05_glossary/all.md#smart-energy)  simulator" (se_sim) is a software for simulating data flows
 in intelligent energy grids.
 
 The objective is a common playground for experts from the energy industry and
