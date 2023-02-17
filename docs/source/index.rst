@@ -13,7 +13,7 @@ smart energy simulator
    02_getting_started/00_index
    03_concepts/00_index
    04_developer/00_index
-   05_glossary/all
+   05_glossary/00_index
 
 Indices and tables
 ==================
