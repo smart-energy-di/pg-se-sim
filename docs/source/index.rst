@@ -19,6 +19,5 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`search`
 
 Last change: |today|
