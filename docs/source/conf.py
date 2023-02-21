@@ -11,6 +11,8 @@ import os
 project = 'smart energy simulator'
 copyright = '2023, mleist'
 author = 'mleist'
+github_ref_name = os.getenv("GITHUB_REF_NAME", "--")
+
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -28,7 +30,6 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinxcontrib.plantuml',
     'sphinx.ext.autosummary',
-    'sphinx_multiversion',
     'sphinx_click',
 ]
 
@@ -61,6 +62,7 @@ html_theme_options = {
     'titles_only': False,
     'style_external_links': False,
 }
+html_context = {'my_github_ref_name': github_ref_name}
 
 autosummary_generate = True  # Turn on sphinx.ext.autosummary
 
@@ -75,31 +77,6 @@ suppress_warnings = ["myst.header"]
 
 # -- Options for todo extension ----------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
-
 todo_include_todos = True
 
 today_fmt = '%Y-%m-%dT%H:%M:%S%z'
-
-# ----- Options sphinx-multiversion ------------------------------------------
-
-# Whitelist pattern for tags (set to None to ignore all tags)
-smv_tag_whitelist = r'^.*$'
-
-# Whitelist pattern for branches (set to None to ignore all branches)
-smv_branch_whitelist = r'^.*$'
-
-# Whitelist pattern for remotes (set to None to use local branches only)
-smv_remote_whitelist = None
-
-# Pattern for released versions
-# smv_released_pattern = r'^tags/.*$'           # Tags only
-# smv_released_pattern = r'^heads/\d+\.\d+$'    # Branches like "2.1"
-# smv_released_pattern = r'^(tags/.*|heads/\d+\.\d+)$'           # Branches like "2.1" and all tags
-# smv_released_pattern = r'^(heads|remotes/[^/]+)/(?!:main).*$'  # Everything except main branch
-
-
-# Format for versioned output directories inside the build directory
-smv_outputdir_format = '{ref.name}'
-
-# Determines whether remote or local git branches/tags are preferred if their output dirs conflict
-smv_prefer_remote_refs = False

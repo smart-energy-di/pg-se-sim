@@ -3,4 +3,3 @@ myst-parser
 sphinxcontrib.plantuml
 sphinx_click
 sphinx_rtd_theme
-sphinx_multiversion
