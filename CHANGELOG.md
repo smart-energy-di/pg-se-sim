@@ -26,3 +26,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Documentation is now in a central place](https://smart-energy-di.github.io/pg-se-sim/)
 - bilingual glossary summarised
 - json plugin cleaned up
+- getter and setter methods removed
+

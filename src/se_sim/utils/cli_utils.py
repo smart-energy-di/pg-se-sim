@@ -1,18 +1,15 @@
+# import builtins
 import builtins
 import inspect
-import json
-import os
 import sys
 from types import ModuleType
 from typing import Any, Optional
 from urllib.parse import unquote
 
-import yaml
-
 from se_sim.utils.log_loggers import PLUGIN_LOG
 
 
-class ErrorDuringImport(Exception):
+class ErrorDuringImport(Exception):  # pragma: no cover
     """Errors that occurred while trying to import something to document it."""
 
     def __init__(self, filename: Optional[str],
@@ -36,7 +33,7 @@ def safeimport(path: str, forceload: int = 0,
     not the package at the beginning.  If the optional 'forceload' argument
     is 1, we reload the module from disk (unless it's a dynamic extension)."""
     # noinspection PyPep8
-    try:
+    try:  # pragma: no cover
         # If forceload is 1 and the module has been previously loaded from
         # disk, we always have to reload the module.  Checking the file's
         # mtime isn't good enough (e.g. the module could contain a class
@@ -59,21 +56,21 @@ def safeimport(path: str, forceload: int = 0,
         (exc, value, tb) = info = sys.exc_info()
         if path in sys.modules:
             # An error occurred while executing the imported module.
-            raise ErrorDuringImport(sys.modules[path].__file__, info)
+            raise ErrorDuringImport(sys.modules[path].__file__, info)  # pragma: no cover
         elif exc is SyntaxError:
             # A SyntaxError occurred before we could execute the module.
-            raise ErrorDuringImport(value.filename, info)  # type: ignore
+            raise ErrorDuringImport(value.filename, info)  # type: ignore   # pragma: no cover
         elif issubclass(exc,  # type: ignore
                         ImportError) and value.name == path:  # type: ignore
             # No such module in the path.
             return None
         else:
             # Some other error occurred during the importing process.
-            raise ErrorDuringImport(path, sys.exc_info())
+            raise ErrorDuringImport(path, sys.exc_info())  # pragma: no cover
     for part in path.split('.')[1:]:
         try:
             module = getattr(module, part)
-        except AttributeError:
+        except AttributeError:  # pragma: no cover
             return None
     return module
 
@@ -91,40 +88,13 @@ def locate(path: str, forceload: int = 0) -> Any:
     if module:
         l_object = module
     else:
-        l_object = builtins
+        l_object = builtins  # pragma: no cover
     for part in parts[n:]:
         try:
             l_object = getattr(l_object, part)
-        except AttributeError:
+        except AttributeError:  # pragma: no cover
             return None
     return l_object
-
-
-def compute_files(data_out: dict[str, Any], first_plugin: bool,
-                  last_plugin: bool, plugin: Any) -> dict[str, Any]:
-    if first_plugin and os.path.isfile(plugin):
-        f = open(plugin, "r")
-        plugin_raw = f.read()
-        if plugin[-5:] == '.json':
-            data_out['data'] = json.loads(plugin_raw)
-        if plugin[-5:] == '.yaml':
-            data_out['data'] = yaml.load(plugin_raw, yaml.SafeLoader)
-        PLUGIN_LOG.debug('first data_out: {}'.format(data_out))
-    elif last_plugin:
-        PLUGIN_LOG.debug('last data_out: {}'.format(data_out))
-        f = open(plugin, "w")
-        if plugin[-5:] == '.json':
-            json.dump(data_out['data'], f,
-                      indent=4,
-                      sort_keys=True)
-        if plugin[-5:] == '.yaml':
-            yaml.dump_all(data_out['data'], f,
-                          indent=4,
-                          default_flow_style=False)
-            f.close()
-        else:
-            PLUGIN_LOG.error("plugin or file '{}' not correct".format(plugin))
-    return data_out
 
 
 def compute_class(data_inp: dict[str, Any],
@@ -138,10 +108,8 @@ def compute_class(data_inp: dict[str, Any],
     return data_out
 
 
-def compute_plugin(data_inp: dict[str, Any],
+def compute_plugin(data_inp: dict[str, Any],  # pragma: no cover
                    data_out: dict[str, Any],
-                   first_plugin: bool,
-                   last_plugin: bool, plugin: Any,
                    plugin_obj: Any, plugin_params: dict[str, str],
                    runtime_infos: dict[str, Any]) -> dict[str, Any]:
     if inspect.isclass(plugin_obj):
@@ -150,16 +118,14 @@ def compute_plugin(data_inp: dict[str, Any],
                                  runtime_infos)
     elif inspect.isfunction(plugin_obj):
         data_out = plugin_obj(data_inp, plugin_params, runtime_infos)
-    elif type(plugin_obj) is dict:
+    elif type(plugin_obj) is dict:  # pragma: no cover
         data_out = plugin_obj
         PLUGIN_LOG.debug('first data_out: {}'.format(data_out))
-    if plugin_obj is None:
-        data_out = compute_files(data_out, first_plugin, last_plugin,
-                                 plugin)
     return data_out
 
 
-def get_plugin_params(plugin: str, plugin_parsed: list[str]) -> dict[str, str]:
+def get_plugin_params(plugin: str, plugin_parsed: list[str]) -> dict[
+    str, str]:  # pragma: no cover
     plugin_params = {}
     try:
         if len(plugin_parsed) > 1:

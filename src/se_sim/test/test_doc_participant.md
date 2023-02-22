@@ -26,6 +26,16 @@ As in the following example:
 
 ```
 
+#### check en_title and de_title
+```pycon
+>>> p.en_title
+'en_title'
+>>> p.de_title
+'de_title'
+
+```
+
+
 #### or create some participants from source code
 
 ````pycon
