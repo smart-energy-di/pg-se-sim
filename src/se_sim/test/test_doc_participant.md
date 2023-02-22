@@ -1,4 +1,4 @@
-# object "participant"
+### object "participant"
 
 Let's play a little with an object "participant".
 
@@ -14,7 +14,7 @@ As in the following example:
 
 ```
 
-### create a participant here:
+#### create a participant here:
 
 ```pycon
 >>> from se_sim.model.participant import Participant
@@ -26,7 +26,7 @@ As in the following example:
 
 ```
 
-### or create some participants from source code
+#### or create some participants from source code
 
 ````pycon
 >>> from se_sim.simulation.simulation import Simulation
@@ -37,7 +37,7 @@ As in the following example:
 
 ````
 
-### select the 'oven' object
+#### select the 'oven' object
 
 ````pycon
 >>> AllSimObjects.get_obj_by_en_title('title_not_in_list')
@@ -46,7 +46,7 @@ As in the following example:
 
 ````
 
-### very first generator output ;-)
+#### very first generator output ;-)
 
 ````pycon
 >>> AllSimObjects.generate()

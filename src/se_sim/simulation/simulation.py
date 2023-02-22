@@ -1,3 +1,5 @@
+import json
+
 from se_sim.generator.genobject import GenObject
 from se_sim.model.participant import Participant
 from se_sim.simulation.create_objects import createSimObjects
