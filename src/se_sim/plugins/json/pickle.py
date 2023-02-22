@@ -1,37 +1,43 @@
-import json
 import sys
 import uuid
 from typing import IO, Any
 
-import jsonpickle
+import jsonpickle  # type: ignore
 
-from se_sim.model.participant import ParticipantEncoder
 from se_sim.plugins.base import PluginBase
 from se_sim.utils.log_loggers import PLUGIN_LOG
 
-class DDD(jsonpickle.handlers.UUIDHandler):
-    def flatten(self, obj, data):
+
+class UUIDHandler(jsonpickle.handlers.UUIDHandler):  # type: ignore
+    def flatten(self, obj: uuid.UUID, data: dict[str, Any]) -> str:
+        """
+        Flatten `obj` into a json-friendly form and write result to `data`.
+
+        :param object obj: The object to be serialized.
+        :param dict data: A partially filled dictionary which will contain the
+            json-friendly representation of `obj` once this method has
+            finished.
+        """
         return str(obj)
 
-    def restore(self, data):
+    def restore(self, data: str) -> uuid.UUID:
         return uuid.UUID(data)
 
 
-jsonpickle.handlers.registry.register(uuid.UUID, DDD)
-
+jsonpickle.handlers.registry.register(uuid.UUID, UUIDHandler)
 
 
 class StdOut(PluginBase):
-    def output(self, outp: Any, fp: IO) -> None:
-        jsonpickle.handlers.register(DDD)
-        simulation = outp['v0simulation']
+    def output(self, outp: Any, fp: IO[str]) -> None:
+        jsonpickle.handlers.register(UUIDHandler)
+        simulation = outp['data']
         if 'pretty' in self.call_params:
             print(jsonpickle.encode(simulation, indent=2, unpicklable=False),
                   file=fp)
         else:
             print(jsonpickle.encode(simulation), file=fp)
 
-    def trans(self, outp):
+    def trans(self, outp: dict[str, Any]) -> dict[str, Any]:
         try:
             if 'out' in self.call_params:
                 f = open(self.call_params['out'], "w")

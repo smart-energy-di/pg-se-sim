@@ -25,3 +25,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - documentation built in using sphinx
 - [Documentation is now in a central place](https://smart-energy-di.github.io/pg-se-sim/)
 - bilingual glossary summarised
+- json plugin cleaned up

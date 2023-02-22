@@ -39,8 +39,6 @@ def main(plugins: list[str], dm: int, dp: int, de: int, ds: int) -> int:
         PLUGIN_LOG.debug("-" * 60)
         PLUGIN_LOG.debug(f"Plugin: '{plugin}'")
         data_inp = data_out
-        first_plugin = plugins.index(plugin) == 0
-        last_plugin = plugins.index(plugin) + 1 == len(plugins)
         # cast :
         plugin = plugin.replace('\\:', '##&&##')
         plugin_parsed = plugin.split(':')
@@ -54,13 +52,10 @@ def main(plugins: list[str], dm: int, dp: int, de: int, ds: int) -> int:
         if plugin_obj is None:
             PLUGIN_LOG.error("PLUGIN '{}' not found".format(plugin_name))
             exit(1)
-        data_out = cli_utils.compute_plugin(data_inp, data_out, first_plugin,
-                                            last_plugin, plugin, plugin_obj,
+        data_out = cli_utils.compute_plugin(data_inp, data_out, plugin_obj,
                                             plugin_params,
                                             runtime_infos)
-        PLUGIN_LOG.debug("f:{} l:{} plugin_obj: {} / '{}'".format(
-            first_plugin,
-            last_plugin,
+        PLUGIN_LOG.debug("plugin_obj: {} / '{}'".format(
             type(plugin_obj),
             plugin
         ))
