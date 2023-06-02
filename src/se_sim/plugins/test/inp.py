@@ -12,7 +12,8 @@ class Test01(PluginBase):
             Participant(
                 el_role='consumer',
                 en_title='oven',
-                de_title='Backofen')
+                de_title='Backofen',
+                lwh=("0.57 m", "0.59 m", "0.595 m"))
         ]
         testDict: dict[str, Any] = {'history': [],
                                     'data': objList,

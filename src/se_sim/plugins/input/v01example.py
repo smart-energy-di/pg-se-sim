@@ -10,5 +10,6 @@ def read(data_inp: dict[str, Any], plugin_params: dict[str, str],
     simulation = Simulation()
     simulation.create_objects()
     data_inp['history'].append("created data 0815")
-    data_inp['v0simulation'] = simulation
+    data_inp['data'] = simulation
+    data_inp['data_type'] = 'v0simulation'
     return data_inp

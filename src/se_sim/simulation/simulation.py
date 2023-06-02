@@ -1,3 +1,4 @@
+from typing import Any
 from se_sim.generator.genobject import GenObject
 from se_sim.model.participant import Participant
 from se_sim.simulation.create_objects import createSimObjects
@@ -30,15 +31,15 @@ class Simulation(list[Participant], GenObject):
                 return obj
         return None
 
-    def gen_output_pre(self, level: int) -> None:
+    def gen_output_pre(self, env: dict[str, Any], level: int) -> None:
         PLUGIN_LOG.debug("Simulation.gen_output_pre")
         print(f"{' ' * (level * 4)}(Simulation:")
 
-    def gen_output_post(self, level: int) -> None:
+    def gen_output_post(self, env: dict[str, Any], level: int) -> None:
         PLUGIN_LOG.debug("Simulation.gen_output_post")
         print(")")
 
-    def go_deeper(self, level: int) -> None:
+    def go_deeper(self, env: dict[str, Any], level: int) -> None:
         PLUGIN_LOG.debug("Simulation.go_deeper")
         for obj in self:
-            obj.generate(level + 1)
+            obj.generate(env, level + 1)

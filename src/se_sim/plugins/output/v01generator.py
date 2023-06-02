@@ -5,10 +5,11 @@ from se_sim.utils.log_loggers import PLUGIN_LOG as P_LOG
 
 
 class Generator(PluginBase):
-    def trans(self, outp: dict[str, Any]) -> dict[str, Any]:
+    def trans(self, env: dict[str, Any]) -> dict[str, Any]:
         P_LOG.debug("se_sim.plugins.output.v01generator.Generator.trans()")
-        outp['history'].append("generator 4711")
-        simulation = outp['v0simulation']
+        env['history'].append("generator 4711")
+        simulation = env['v0simulation']
+        # outp['gen_data'] = simulation.gen_data
         if hasattr(simulation, 'generate'):
-            simulation.generate()
-        return outp
+            simulation.generate(env)
+        return env

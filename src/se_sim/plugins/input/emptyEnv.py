@@ -8,5 +8,5 @@ def initialize(data_inp: dict[str, Any], plugin_params: dict[str, str],
     PLUGIN_LOG.debug(f'none.none params:{plugin_params}')
     initDict: dict[str, Any] = {'history': [],
                                 'data': None,
-                                'data_type': 'v0simulation'}
+                                'data_type': None}
     return initDict

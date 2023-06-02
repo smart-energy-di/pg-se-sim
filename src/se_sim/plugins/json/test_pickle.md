@@ -49,7 +49,7 @@
 ...                                     plugin_obj,
 ...                                     plugin_params,
 ...                                     runtime_infos)
-[{"py/object": "se_sim.model.participant.Participant", "_uuid": "...", "el_role": "consumer", "en_title": "oven", "de_title": "Backofen"}]
+[{"py/object": "se_sim.model.participant.Participant", "_uuid": "...", "el_role": "consumer", "en_title": "oven", "de_title": "Backofen", "lwh": {"py/tuple": ["0.57 m", "0.59 m", "0.595 m"]}}]
 
 ```
 
@@ -64,7 +64,12 @@
         "_uuid": "...",
         "el_role": "consumer",
         "en_title": "oven",
-        "de_title": "Backofen"
+        "de_title": "Backofen",
+        "lwh": [
+          "0.57 m",
+          "0.59 m",
+          "0.595 m"
+         ]
       }
     ]
 

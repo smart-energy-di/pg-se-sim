@@ -20,7 +20,8 @@ As in the following example:
 >>> from se_sim.model.participant import Participant
 >>> p=Participant(el_role='no_role',
 ...               en_title='en_title',
-...               de_title='de_title')
+...               de_title='de_title',
+...               lwh=("0.57 m", "0.59 m", "0.595 m"))
 >>> type(p)
 <class 'se_sim.model.participant.Participant'>
 
@@ -59,7 +60,8 @@ As in the following example:
 #### very first generator output ;-)
 
 ````pycon
->>> AllSimObjects.generate()
+>>> env = {}
+>>> AllSimObjects.generate(env)
     (Simulation:
             (participant:'oven')
             (participant:'instantaneous water heater big')

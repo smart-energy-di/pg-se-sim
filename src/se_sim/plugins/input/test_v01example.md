@@ -34,10 +34,7 @@
 
 ```pycon
 >>> pprint(sorted(data_out.items()))
-[('data', None),
- ('data_type', 'v0simulation'),
- ('history', ['created data 0815']),
- ('v0simulation',
+[('data',
   [<se_sim.model.participant.Participant object at ...>,
    <se_sim.model.participant.Participant object at ...>,
    <se_sim.model.participant.Participant object at ...>,
@@ -59,6 +56,8 @@
    <se_sim.model.participant.Participant object at ...>,
    <se_sim.model.participant.Participant object at ...>,
    <se_sim.model.participant.Participant object at ...>,
-   <se_sim.model.participant.Participant object at ...>])]
+   <se_sim.model.participant.Participant object at ...>]),
+ ('data_type', 'v0simulation'),
+ ('history', ['created data 0815'])]
 
 ```
