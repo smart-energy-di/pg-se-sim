@@ -1,0 +1,28 @@
+[
+  {
+    "sim_class": "se_sim.model.participant.Participant",
+    "params": {
+      "el_role": "consumer",
+      "en_title": "oven",
+      "de_title": "Backofen",
+      "lwh": [
+        "10 cm",
+        "10 cm",
+        "10 cm"
+      ]
+    }
+  },
+  {
+    "sim_class": "se_sim.model.participant.Participant",
+    "params": {
+      "el_role": "consumer",
+      "en_title": "instantaneous water heater big",
+      "de_title": "Durchlauferhitzer groß",
+      "lwh": [
+        "20 cm",
+        "20 cm",
+        "20 cm"
+      ]
+    }
+  }
+]

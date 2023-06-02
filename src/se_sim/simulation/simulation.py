@@ -1,7 +1,10 @@
+import json
 from typing import Any
+
 from se_sim.generator.genobject import GenObject
 from se_sim.model.participant import Participant
 from se_sim.simulation.create_objects import createSimObjects
+from se_sim.utils import cli_utils
 from se_sim.utils.log_loggers import MODEL_LOG, PLUGIN_LOG
 
 
@@ -11,6 +14,14 @@ class Simulation(list[Participant], GenObject):
 
     def create_objects(self) -> None:
         createSimObjects(self)
+
+    def create_from_json(self, filename: str) -> None:
+        f = open(filename)
+        data = json.load(f)
+        f.close()
+        for obj in data:
+            sim_class = cli_utils.locate(obj['sim_class'])
+            self.append(sim_class(**obj['params']))
 
     def debug_general_statistic(self) -> None:
         MODEL_LOG.info("Number of objects %3d", len(self))  # pragma: no cover
